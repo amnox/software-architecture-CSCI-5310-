@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-function search(query, cb) {
-  return fetch(`api/books?query=${query}&column=name`, {
+function search(query,column, cb) {
+  return fetch(`api/books?query=${query}&column=${column}`, {
     accept: "application/json"
   })
     .then(checkStatus)

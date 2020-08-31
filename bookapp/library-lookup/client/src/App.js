@@ -1,35 +1,36 @@
 import React, { Component } from "react";
-import SelectedFoods from "./SelectedFoods";
-import FoodSearch from "./FoodSearch";
+import SelectedBooks from "./SelectedBooks";
+import BookSearch from "./BookSearch";
 
 class App extends Component {
   state = {
-    selectedFoods: []
+    selectedBooks: []
   };
 
-  removeFoodItem = itemIndex => {
+  removeBookItem = itemIndex => {
     const filteredFoods = this.state.selectedFoods.filter(
       (item, idx) => itemIndex !== idx
     );
     this.setState({ selectedFoods: filteredFoods });
   };
 
-  addFood = food => {
-    const newFoods = this.state.selectedFoods.concat(food);
-    this.setState({ selectedFoods: newFoods });
+  addBook = book => {
+    const newBooks = this.state.selectedBooks.concat(book);
+    this.setState({ selectedBooks: newBooks });
   };
 
   render() {
-    const { selectedFoods } = this.state;
+    const { selectedBooks } = this.state;
 
     return (
       <div className="App">
         <div className="ui text container">
-          <SelectedFoods
-            foods={selectedFoods}
-            onFoodClick={this.removeFoodItem}
+          <SelectedBooks
+            books={selectedBooks}
+            onBookClick={this.removeBookItem}
           />
-          <FoodSearch onFoodClick={this.addFood} />
+          <BookSearch onBookClick={this.addBook} />
+          
         </div>
       </div>
     );

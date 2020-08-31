@@ -32,8 +32,7 @@ app.get('/api/books', (req, res) => {
   // WARNING: Not for production use! The following statement
   // is not protected against SQL injections.
   const r = db.exec(sql_command);
-console.log(sql_command)
-console.log(r)
+
   if (r[0]) {
     res.json(
       r[0].values.map((entry) => {
