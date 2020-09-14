@@ -81,7 +81,7 @@ app.post('/api/books',jsonParser, (req, res) => {
   const sql_command = `INSERT INTO "main"."books"("name","author_last","author_first","id") VALUES ("${name}","${last}","${first}",${id})`
   
   const r = db.run(sql_command);
-  console.log(r)
+  console.log(sql_command)
   res.json({
     success: 'book created',
   })
